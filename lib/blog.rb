@@ -5,7 +5,7 @@ require 'time'
 require 'yaml'
 
 class Blog < Sinatra::Base
-  use GithubHook 
+use GithubHook 
 
   set :root, File.expand_path('../../', __FILE__)
   set :articles, []
@@ -29,6 +29,7 @@ class Blog < Sinatra::Base
   articles.reverse!
 
   get '/' do
+    puts "fired the / block in blog.rb"
     erb :index
   end
 end
